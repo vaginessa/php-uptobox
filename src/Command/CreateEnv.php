@@ -1,6 +1,5 @@
 <?php
 
-
 //
 // Oussama Elgoumri
 // contact@sec4ar.com
@@ -8,15 +7,12 @@
 // Sat Feb 18 08:44:15 WET 2017
 //
 
-
 namespace OussamaElgoumri\Command;
-
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputOption;
-
 
 class CreateEnv extends Command
 {

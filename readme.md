@@ -13,7 +13,7 @@ A Command line tool, built for uptobox.com
 # Usage:
 ### Before you start
 ```sh
-    $ ./uptobox env:create
+$ ./uptobox env:create
 ```
 This command will create `.env` file on the root of the application, please
 open it and fill in your uptobox username and password.
@@ -23,7 +23,7 @@ open it and fill in your uptobox username and password.
 
 ### Command line:
 ```sh
-    $ ./uptobox <uptobox-link> --json
+$ ./uptobox <uptobox-link> --json
 ```
 
 `--json` is not required, but in case you want to use the tool from other
@@ -35,13 +35,13 @@ a direct download link, and a stream if it's available.
 The returned data looks like this:
 
 ```php
-      'source_link' => '',       // link you provided
-      'new_link' => '',          // link to the file copied to your account
-      'para_title' => '',        // original title of the file (complete)
-      'name' => '',              // original name of the file
-      'size' => '',              // size
-      'add_to_my_account' => '', // file is added to your account
-      'slug' => '',              // new name of the file in your account (hashed)
-      'stream' => '',            // stream link
-      'direct' => '',            // direct link to your file
+'source_link' => '',       // link you provided
+'new_link' => '',          // link to the file copied to your account
+'para_title' => '',        // original title of the file (complete)
+'name' => '',              // original name of the file
+'size' => '',              // size
+'add_to_my_account' => '', // file is added to your account
+'slug' => '',              // new name of the file in your account (hashed)
+'stream' => '',            // stream link
+'direct' => '',            // direct link to your file
 ```

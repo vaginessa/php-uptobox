@@ -357,7 +357,7 @@ class Uptobox
      * @throws \HttpUrlException
      * @throws UptoboxLinkIsNotValid
      */
-    private function validate($link)
+    public function validate($link)
     {
         if (!filter_var($link, FILTER_VALIDATE_URL, FILTER_FLAG_PATH_REQUIRED)) {
             throw new UptoboxLinkIsNotValidException($link);

@@ -1,8 +1,6 @@
 #!/usr/bin/php
 
-
 <?php
-
 
 //
 // Oussama Elgoumri
@@ -11,20 +9,32 @@
 // Fri Feb 17 19:13:49 WET 2017
 //
 
-
 require_once __DIR__ . '/vendor/autoload.php';
-
 
 use Symfony\Component\Console\Application;
 use OussamaElgoumri\Command\CreateEnv;
-use OussamaElgoumri\Command\UserPass;
+use OussamaElgoumri\Uptobox;
 use Dotenv\Dotenv;
-
 
 (new Dotenv(__DIR__))
     ->overload();
 
+$args = array_slice($argv, 1);
 
-$app = new Application();
-$app->add(new CreateEnv);
-$app->run();
+// The goal is to make the tool very simple
+if (count($args) && Uptobox__validate($args[0])) {
+    $results = Uptobox__on($args[0]);
+
+    if (isset($args[1]) && strpos($args[1], 'json') !== FALSE) {
+        echo json_encode($results);
+    } else {
+        foreach ($results as $key => $value) {
+            echo sprintf("%20s: %s\n", ucfirst(str_replace('_', ' ', $key)), $value);
+        }
+    }
+} else {
+    // don't really know why i used symfony.. i think old habbits die hard :)
+    $app = new Application();
+    $app->add(new CreateEnv);
+    $app->run();
+}
