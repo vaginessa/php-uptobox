@@ -19,7 +19,6 @@ use OussamaElgoumri\Exceptions\UptoboxNotAddedToYourAccountException;
 use OussamaElgoumri\Exceptions\UptoboxStreamException;
 use Symfony\Component\DomCrawler\Crawler;
 
-
 class Uptobox
 {
     protected $attempt_add_to_my_account = 0;
@@ -140,7 +139,7 @@ class Uptobox
         if ($this->attempt_get_direct_link === 3) {
             $this->attempt_get_direct_link += 1;
             sleep(60);
-            ftruncate(fopen(Cookie::getFile(), 'r+'), 0);
+            ftruncate(fopen(getCookieFile(), 'r+'), 0);
             return $this->setDirectAndStream($link, $set_stream);
         }
 
